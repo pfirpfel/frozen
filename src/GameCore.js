@@ -193,6 +193,7 @@ define([
     run: function() {
       if(!this.isRunning){
         this.init();
+        this.postInit();
         this.initInput(this.inputManager);
         this.launchLoop();
       }
@@ -254,6 +255,13 @@ define([
 
       this.isRunning = true;
     },
+
+    /**
+     * Can be overidden in the subclass to perform custom initialization
+     * @function
+     * @memberOf GameCore#
+     */
+    postInit: function(){},
 
     /**
      * Can be overidden in the subclasses to map user input to actions
